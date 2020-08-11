@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
-                var eventsSch = [
+    var eventsSch = [
                         {
                           title: "All Day Event",
                           start: "2020-06-01"
@@ -69,19 +69,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
         console.log(typeof(eventsSch))
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        
+        var calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        right: 'listDay,listWeek'
+        right: 'listDay,listWeek,timeGridDay'
       },
 
       // customize the button names,
       // otherwise they'd all just say "list"
       views: {
         listDay: { buttonText: 'list day' },
-        listWeek: { buttonText: 'list week' }
+        listWeek: { buttonText: 'list week' },
+        Day: { buttonText: 'Day Wise Events' },
+        basicDay:{buttonText:''}
       },
 
       initialView: 'listWeek',
@@ -90,7 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
       events: eventsSch 
-    })
+    },
+    
+    )
 
     calendar.render();
   });
